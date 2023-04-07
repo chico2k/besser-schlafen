@@ -1,0 +1,6 @@
+packages:
+  - apps/sanity
+  - apps/nextjs
+  - packages/api
+  - packages/sanity
+  - packages/config/*

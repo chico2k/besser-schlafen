@@ -1,0 +1,22 @@
+{
+  "name": "@acme/sanity",
+  "version": "0.1.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "lint:fix": "pnpm lint --fix",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sanity/client": "^5.4.0",
+    "@sanity/image-url": "^1.0.2",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "*",
+    "eslint": "^8.36.0",
+    "typescript": "^5.0.2"
+  }
+}
