@@ -28,11 +28,9 @@ export const sanityImageZ = z.object({
   _type: z.string(),
   altText: z.string().nullable(),
   description: z.string().optional(),
-  metadata: z
-    .object({
-      blurHash: z.string().nullable(),
-    })
-    .nullable(),
+  metadata: z.object({
+    blurHash: z.string(),
+  }),
 });
 
 // Reused a lot through queries

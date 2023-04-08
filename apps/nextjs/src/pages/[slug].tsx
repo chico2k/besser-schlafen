@@ -1,12 +1,11 @@
 import React from "react";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
 
 import { generateSSGHelper } from "@acme/api";
-import { urlFor } from "@acme/sanity";
 
 import { api } from "~/utils/api";
+import PostDetail from "~/components/PostDetail";
 
 const PostDetailPage = (
   props: InferGetStaticPropsType<typeof getStaticProps>,
@@ -25,17 +24,8 @@ const PostDetailPage = (
           <meta name="description" content={data.title} />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="flex h-screen flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-          <div className="container mt-12 flex flex-col items-center justify-center gap-4 px-4 py-8">
-            <Image
-              src={urlFor(data.mainImage).url()}
-              alt={`${data.slug} profile pic`}
-              width={768}
-              height={96}
-              className="h-96 w-full  object-cover"
-            />
-            <div>{props.slug}</div>
-          </div>
+        <main className="mx-auto flex max-w-4xl flex-col items-center bg-white text-gray-600">
+          <PostDetail post={data} />
         </main>
       </>
     </div>

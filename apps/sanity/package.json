@@ -1,5 +1,5 @@
 {
-  "name": "sanity",
+  "name": "@acme/cms",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -19,17 +19,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.0.0",
+    "sanity": "^1.0.0",
     "styled-components": "^5.2.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
-    "@types/react": "^18.0.25",
+    "@types/react": "^18.0.30",
     "@types/styled-components": "^5.1.26",
-    "eslint": "^8.6.0",
+    "eslint": "^8.36.0",
     "prettier": "^2.8.7",
-    "typescript": "^4.0.0"
+    "typescript": "^5.0.2"
   },
   "prettier": {
     "semi": false,

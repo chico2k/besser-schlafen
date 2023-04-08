@@ -1,4 +1,4 @@
-import {defineType, defineArrayMember} from 'sanity'
+import {defineType, defineArrayMember, defineField} from 'sanity'
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -24,7 +24,7 @@ export default defineType({
       // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
+        // {title: 'H1', value: 'h1'},
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
@@ -51,17 +51,66 @@ export default defineType({
                 name: 'href',
                 type: 'url',
               },
+              {
+                title: 'Open in new window.',
+                name: 'blank',
+                type: 'boolean',
+                initialValue: true,
+              },
+            ],
+          },
+          {
+            name: 'internalLink',
+            type: 'object',
+            title: 'Internal link',
+            options: {
+              modal: {
+                type: 'fold', // 'popover' (default) | 'fullscreen' | 'fold'
+                width: 'large', // 'small' (default) | 'medium' | 'large' | 'full'
+              },
+            },
+            fields: [
+              {
+                name: 'reference',
+                type: 'reference',
+                title: 'Reference',
+                to: [
+                  {type: 'post'},
+                  {type: 'product'},
+                  // other types you may want to link to
+                ],
+              },
             ],
           },
         ],
       },
     }),
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
     defineArrayMember({
       type: 'image',
       options: {hotspot: true},
+      fields: [
+        {
+          title: 'Alternative Text',
+          name: 'altText',
+          type: 'string',
+          validation: (Rule) => [Rule.required().error('Alternative image text is required')],
+        },
+      ],
     }),
+    defineArrayMember({
+      type: 'object',
+      name: 'bestProduct',
+      title: 'Best Product',
+      description: 'Added for the Best Product Section',
+      preview: {
+        select: {
+          title: 'title',
+        },
+      },
+      fields: [{name: 'street', type: 'string', title: 'Street name'}],
+    }),
+    // You can add additional types here. Note that you can't use
+    // primitive types such as 'string' and 'number' in the same array
+    // as a block type.
   ],
 })
